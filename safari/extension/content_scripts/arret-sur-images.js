@@ -1,0 +1,1 @@
+ophirofoxMirror('ARRETSURIMAGES').catch(ophirofoxError);

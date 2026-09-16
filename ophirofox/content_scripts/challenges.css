@@ -1,0 +1,22 @@
+.ophirofox-europresse {
+    --tw-bg-opacity: 1;
+    background-color: #ffdc27;
+    background-color: rgb(255 220 39 / var(--tw-bg-opacity, 1));
+    font-family: IBM Plex Sans Condensed;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    --tw-text-opacity: 1;
+    color: #000;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+    font-weight: 700;
+    width: 200px;
+    margin-left: 30px;
+    padding: 10px;
+}
+
+.ophirofox-europresse:hover {
+    --tw-bg-opacity: 1;
+    background-color: #ffe458;
+    background-color: rgb(255 228 88 / var(--tw-bg-opacity, 1));
+}

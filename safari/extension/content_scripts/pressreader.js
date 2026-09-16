@@ -1,0 +1,1 @@
+ophirofoxMirror('PRESSREADER').catch(ophirofoxError);

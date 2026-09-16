@@ -1,0 +1,9 @@
+.ophirofox-europresse {
+    display: inline-block;
+    margin: 0 0.25rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #ffc700;
+    color: #000 !important;
+    font-size: 1.2rem;
+}

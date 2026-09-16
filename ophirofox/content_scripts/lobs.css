@@ -1,0 +1,23 @@
+.ophirofox-europresse {
+    background-color: #FEEB6F;
+    padding: 1rem 1.5rem;
+    color: #000;
+    border: none;
+    border-radius: 3.6rem;
+    text-decoration: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: "Karla",ff-karla,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    width: 200px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.ophirofox-europresse:hover, .ophirofox-europresse:active {
+    background-color: #FFC70F;
+}
