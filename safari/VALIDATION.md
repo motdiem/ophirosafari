@@ -38,4 +38,5 @@ Other institutions remain unverified. Tests require legitimate library access; n
 - Both device bundles passed signature verification and carry development profiles that include the connected iPhone. Device identifiers, profile expiration details, and signing logs remain in ignored local files.
 - CoreDevice reported successful installation of the app and embedded extension on an iPhone running iOS 27. Automatic launch was denied because the phone locked; manual opening and Safari enablement were requested.
 - Automated provisioning initially selected a missing profile. Reusing the valid cached Xcode-managed profile produced a signed build; the device build script now makes profile regeneration opt-in for setup and renewal.
-- Live iPhone appearance, Safari permissions, BnF authentication, PDF editions, special BnF services, suspension, and restart acceptance remain pending device confirmation. Successful installation does not establish those workflows.
+- After installation, the device owner confirmed that the iPhone extension is working as intended. This confirms the personal deployment in normal use; no separate per-scenario results were supplied.
+- The detailed matrix for PDF editions, every special BnF service, denied/revoked permissions, expired authentication, suspension, and restart remains unverified on the phone unless individually recorded.

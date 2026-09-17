@@ -2,7 +2,7 @@
 
 Branch: `codex/ios-safari`, based on `origin/main`.
 
-Implementation status: shared iOS resources, popup, native wrapper, build/install scripts, and regression tests are implemented. Native targets are separate projects in `safari/Ophirofox.xcworkspace` so the customized macOS project remains intact. The signed app is installed on the personal device; live acceptance is tracked in `VALIDATION.md`.
+Implementation status: shared iOS resources, popup, native wrapper, build/install scripts, and regression tests are implemented. Native targets are separate projects in `safari/Ophirofox.xcworkspace` so the customized macOS project remains intact. The signed app is installed on the personal device, and its owner confirmed it works as intended. Detailed validation coverage and untested edge cases are tracked in `VALIDATION.md`.
 
 ## Goal and scope
 
