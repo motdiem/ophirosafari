@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		995CB6B9305B26D000CCE6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995CB6B8305B26D000CCE6AA /* AppDelegate.swift */; };
+		995CB6BD305B26D000CCE6AA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6BB305B26D000CCE6AA /* Main.html */; };
+		995CB6BF305B26D000CCE6AA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6BE305B26D000CCE6AA /* Icon.png */; };
+		995CB6C1305B26D000CCE6AA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6C0305B26D000CCE6AA /* Style.css */; };
+		995CB6C3305B26D000CCE6AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995CB6C2305B26D000CCE6AA /* SceneDelegate.swift */; };
+		995CB6C5305B26D000CCE6AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995CB6C4305B26D000CCE6AA /* ViewController.swift */; };
+		995CB6C8305B26D000CCE6AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6C6305B26D000CCE6AA /* LaunchScreen.storyboard */; };
+		995CB6CB305B26D000CCE6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6C9305B26D000CCE6AA /* Main.storyboard */; };
+		995CB6D3305B26D100CCE6AA /* Ophirofox iOS Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 995CB6D2305B26D100CCE6AA /* Ophirofox iOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		995CB6D8305B26D100CCE6AA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995CB6D7305B26D100CCE6AA /* SafariWebExtensionHandler.swift */; };
+		995CB6DA305B26D100CCE6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6CC305B26D100CCE6AA /* Assets.xcassets */; };
+		995CB6EE305B26D100CCE6AA /* settings in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6E5305B26D100CCE6AA /* settings */; };
+		995CB6EF305B26D100CCE6AA /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6E6305B26D100CCE6AA /* popup */; };
+		995CB6F0305B26D100CCE6AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6E7305B26D100CCE6AA /* LICENSE */; };
+		995CB6F1305B26D100CCE6AA /* core.js in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6E8305B26D100CCE6AA /* core.js */; };
+		995CB6F2305B26D100CCE6AA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6E9305B26D100CCE6AA /* background.js */; };
+		995CB6F3305B26D100CCE6AA /* partners.js in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6EA305B26D100CCE6AA /* partners.js */; };
+		995CB6F4305B26D100CCE6AA /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6EB305B26D100CCE6AA /* icons */; };
+		995CB6F5305B26D100CCE6AA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6EC305B26D100CCE6AA /* manifest.json */; };
+		995CB6F6305B26D100CCE6AA /* content_scripts in Resources */ = {isa = PBXBuildFile; fileRef = 995CB6ED305B26D100CCE6AA /* content_scripts */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		995CB6D4305B26D100CCE6AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 995CB6AD305B26D000CCE6AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 995CB6D1305B26D100CCE6AA;
+			remoteInfo = "Ophirofox iOS Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		995CB6E0305B26D100CCE6AA /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				995CB6D3305B26D100CCE6AA /* Ophirofox iOS Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		995CB6B5305B26D000CCE6AA /* Ophirofox iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ophirofox iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		995CB6B8305B26D000CCE6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		995CB6BC305B26D000CCE6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		995CB6BE305B26D000CCE6AA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		995CB6C0305B26D000CCE6AA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		995CB6C2305B26D000CCE6AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		995CB6C4305B26D000CCE6AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		995CB6C7305B26D000CCE6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		995CB6CA305B26D000CCE6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		995CB6CC305B26D100CCE6AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		995CB6CD305B26D100CCE6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		995CB6D2305B26D100CCE6AA /* Ophirofox iOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ophirofox iOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		995CB6D7305B26D100CCE6AA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		995CB6D9305B26D100CCE6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		995CB6E5305B26D100CCE6AA /* settings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = settings; path = "../../../build/extension-ios/settings"; sourceTree = "<group>"; };
+		995CB6E6305B26D100CCE6AA /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = "../../../build/extension-ios/popup"; sourceTree = "<group>"; };
+		995CB6E7305B26D100CCE6AA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = "../../../build/extension-ios/LICENSE"; sourceTree = "<group>"; };
+		995CB6E8305B26D100CCE6AA /* core.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = core.js; path = "../../../build/extension-ios/core.js"; sourceTree = "<group>"; };
+		995CB6E9305B26D100CCE6AA /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../../build/extension-ios/background.js"; sourceTree = "<group>"; };
+		995CB6EA305B26D100CCE6AA /* partners.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = partners.js; path = "../../../build/extension-ios/partners.js"; sourceTree = "<group>"; };
+		995CB6EB305B26D100CCE6AA /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../build/extension-ios/icons"; sourceTree = "<group>"; };
+		995CB6EC305B26D100CCE6AA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../build/extension-ios/manifest.json"; sourceTree = "<group>"; };
+		995CB6ED305B26D100CCE6AA /* content_scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content_scripts; path = "../../../build/extension-ios/content_scripts"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		995CB6B2305B26D000CCE6AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		995CB6CF305B26D100CCE6AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		995CB6AC305B26D000CCE6AA = {
+			isa = PBXGroup;
+			children = (
+				995CB6B7305B26D000CCE6AA /* Ophirofox iOS */,
+				995CB6D6305B26D100CCE6AA /* Ophirofox iOS Extension */,
+				995CB6B6305B26D000CCE6AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		995CB6B6305B26D000CCE6AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				995CB6B5305B26D000CCE6AA /* Ophirofox iOS.app */,
+				995CB6D2305B26D100CCE6AA /* Ophirofox iOS Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		995CB6B7305B26D000CCE6AA /* Ophirofox iOS */ = {
+			isa = PBXGroup;
+			children = (
+				995CB6B8305B26D000CCE6AA /* AppDelegate.swift */,
+				995CB6C2305B26D000CCE6AA /* SceneDelegate.swift */,
+				995CB6C4305B26D000CCE6AA /* ViewController.swift */,
+				995CB6C6305B26D000CCE6AA /* LaunchScreen.storyboard */,
+				995CB6C9305B26D000CCE6AA /* Main.storyboard */,
+				995CB6CC305B26D100CCE6AA /* Assets.xcassets */,
+				995CB6CD305B26D100CCE6AA /* Info.plist */,
+				995CB6BA305B26D000CCE6AA /* Resources */,
+			);
+			path = "Ophirofox iOS";
+			sourceTree = "<group>";
+		};
+		995CB6BA305B26D000CCE6AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				995CB6BB305B26D000CCE6AA /* Main.html */,
+				995CB6BE305B26D000CCE6AA /* Icon.png */,
+				995CB6C0305B26D000CCE6AA /* Style.css */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		995CB6D6305B26D100CCE6AA /* Ophirofox iOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				995CB6E4305B26D100CCE6AA /* Resources */,
+				995CB6D7305B26D100CCE6AA /* SafariWebExtensionHandler.swift */,
+				995CB6D9305B26D100CCE6AA /* Info.plist */,
+			);
+			path = "Ophirofox iOS Extension";
+			sourceTree = "<group>";
+		};
+		995CB6E4305B26D100CCE6AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				995CB6E5305B26D100CCE6AA /* settings */,
+				995CB6E6305B26D100CCE6AA /* popup */,
+				995CB6E7305B26D100CCE6AA /* LICENSE */,
+				995CB6E8305B26D100CCE6AA /* core.js */,
+				995CB6E9305B26D100CCE6AA /* background.js */,
+				995CB6EA305B26D100CCE6AA /* partners.js */,
+				995CB6EB305B26D100CCE6AA /* icons */,
+				995CB6EC305B26D100CCE6AA /* manifest.json */,
+				995CB6ED305B26D100CCE6AA /* content_scripts */,
+			);
+			name = Resources;
+			path = "Ophirofox iOS Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		995CB6B4305B26D000CCE6AA /* Ophirofox iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 995CB6E1305B26D100CCE6AA /* Build configuration list for PBXNativeTarget "Ophirofox iOS" */;
+			buildPhases = (
+				995CB6B1305B26D000CCE6AA /* Sources */,
+				995CB6B2305B26D000CCE6AA /* Frameworks */,
+				995CB6B3305B26D000CCE6AA /* Resources */,
+				995CB6E0305B26D100CCE6AA /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				995CB6D5305B26D100CCE6AA /* PBXTargetDependency */,
+			);
+			name = "Ophirofox iOS";
+			productName = "Ophirofox iOS";
+			productReference = 995CB6B5305B26D000CCE6AA /* Ophirofox iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		995CB6D1305B26D100CCE6AA /* Ophirofox iOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 995CB6DD305B26D100CCE6AA /* Build configuration list for PBXNativeTarget "Ophirofox iOS Extension" */;
+			buildPhases = (
+				995CB6CE305B26D100CCE6AA /* Sources */,
+				995CB6CF305B26D100CCE6AA /* Frameworks */,
+				995CB6D0305B26D100CCE6AA /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "Ophirofox iOS Extension";
+			productName = "Ophirofox iOS Extension";
+			productReference = 995CB6D2305B26D100CCE6AA /* Ophirofox iOS Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		995CB6AD305B26D000CCE6AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					995CB6B4305B26D000CCE6AA = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					995CB6D1305B26D100CCE6AA = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 995CB6B0305B26D000CCE6AA /* Build configuration list for PBXProject "Ophirofox iOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 995CB6AC305B26D000CCE6AA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 995CB6B6305B26D000CCE6AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				995CB6B4305B26D000CCE6AA /* Ophirofox iOS */,
+				995CB6D1305B26D100CCE6AA /* Ophirofox iOS Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		995CB6B3305B26D000CCE6AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				995CB6BF305B26D000CCE6AA /* Icon.png in Resources */,
+				995CB6CB305B26D000CCE6AA /* Main.storyboard in Resources */,
+				995CB6C8305B26D000CCE6AA /* LaunchScreen.storyboard in Resources */,
+				995CB6BD305B26D000CCE6AA /* Main.html in Resources */,
+				995CB6DA305B26D100CCE6AA /* Assets.xcassets in Resources */,
+				995CB6C1305B26D000CCE6AA /* Style.css in Resources */,
+			);
+		};
+		995CB6D0305B26D100CCE6AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				995CB6F0305B26D100CCE6AA /* LICENSE in Resources */,
+				995CB6F3305B26D100CCE6AA /* partners.js in Resources */,
+				995CB6F6305B26D100CCE6AA /* content_scripts in Resources */,
+				995CB6EE305B26D100CCE6AA /* settings in Resources */,
+				995CB6EF305B26D100CCE6AA /* popup in Resources */,
+				995CB6F5305B26D100CCE6AA /* manifest.json in Resources */,
+				995CB6F1305B26D100CCE6AA /* core.js in Resources */,
+				995CB6F4305B26D100CCE6AA /* icons in Resources */,
+				995CB6F2305B26D100CCE6AA /* background.js in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		995CB6B1305B26D000CCE6AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				995CB6C5305B26D000CCE6AA /* ViewController.swift in Sources */,
+				995CB6B9305B26D000CCE6AA /* AppDelegate.swift in Sources */,
+				995CB6C3305B26D000CCE6AA /* SceneDelegate.swift in Sources */,
+			);
+		};
+		995CB6CE305B26D100CCE6AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				995CB6D8305B26D100CCE6AA /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		995CB6D5305B26D100CCE6AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 995CB6D1305B26D100CCE6AA /* Ophirofox iOS Extension */;
+			targetProxy = 995CB6D4305B26D100CCE6AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		995CB6BB305B26D000CCE6AA /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				995CB6BC305B26D000CCE6AA /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		995CB6C6305B26D000CCE6AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				995CB6C7305B26D000CCE6AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		995CB6C9305B26D000CCE6AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				995CB6CA305B26D000CCE6AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		995CB6DB305B26D100CCE6AA /* Debug configuration for PBXProject "Ophirofox iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				OPHIROFOX_IOS_BUNDLE_ID = dev.motdiem.ophirosafari.ios;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		995CB6DC305B26D100CCE6AA /* Release configuration for PBXProject "Ophirofox iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				OPHIROFOX_IOS_BUNDLE_ID = dev.motdiem.ophirosafari.ios;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		995CB6DE305B26D100CCE6AA /* Debug configuration for PBXNativeTarget "Ophirofox iOS Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ophirofox iOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ophirofox;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(OPHIROFOX_IOS_BUNDLE_ID).Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		995CB6DF305B26D100CCE6AA /* Release configuration for PBXNativeTarget "Ophirofox iOS Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ophirofox iOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ophirofox;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(OPHIROFOX_IOS_BUNDLE_ID).Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		995CB6E2305B26D100CCE6AA /* Debug configuration for PBXNativeTarget "Ophirofox iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ophirofox iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ophirofox iOS";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(OPHIROFOX_IOS_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		995CB6E3305B26D100CCE6AA /* Release configuration for PBXNativeTarget "Ophirofox iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ophirofox iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ophirofox iOS";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(OPHIROFOX_IOS_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		995CB6B0305B26D000CCE6AA /* Build configuration list for PBXProject "Ophirofox iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				995CB6DB305B26D100CCE6AA /* Debug configuration for PBXProject "Ophirofox iOS" */,
+				995CB6DC305B26D100CCE6AA /* Release configuration for PBXProject "Ophirofox iOS" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		995CB6DD305B26D100CCE6AA /* Build configuration list for PBXNativeTarget "Ophirofox iOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				995CB6DE305B26D100CCE6AA /* Debug configuration for PBXNativeTarget "Ophirofox iOS Extension" */,
+				995CB6DF305B26D100CCE6AA /* Release configuration for PBXNativeTarget "Ophirofox iOS Extension" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		995CB6E1305B26D100CCE6AA /* Build configuration list for PBXNativeTarget "Ophirofox iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				995CB6E2305B26D100CCE6AA /* Debug configuration for PBXNativeTarget "Ophirofox iOS" */,
+				995CB6E3305B26D100CCE6AA /* Release configuration for PBXNativeTarget "Ophirofox iOS" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 995CB6AD305B26D000CCE6AA /* Project object */;
+	validationLevel = 1;
+}

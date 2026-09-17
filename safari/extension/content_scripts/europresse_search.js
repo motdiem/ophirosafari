@@ -23,7 +23,7 @@
       if(!field){notice('Formulaire Europresse introuvable. Rechargez cette page pour réessayer.');return;}
       const query=C.keywords(pending.search_terms);
       if(!query){notice('Titre introuvable. Relancez la recherche depuis le journal.');return;}
-      field.value='TIT_HEAD='+query;
+      field.value=(pending.type==='SearchMenu'?'TEXT=':'TIT_HEAD=')+query;
       const filter=document.getElementById('DateFilter_DateRange');if(filter)filter.value=C.dateFilter(pending.published_time);
       if(pending.origin_url){const meta=document.createElement('meta');meta.name='ophirofox-origin-url';meta.content=pending.origin_url;document.head.append(meta);}
       if(await send({action:'consume',id:pending.id}))HTMLFormElement.prototype.submit.call(field.form);

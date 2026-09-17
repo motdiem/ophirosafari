@@ -66,6 +66,16 @@ test('zero-result search retries TEXT once and does not loop',async()=>{
     p.load('content_scripts/europresse_search.js');await flush();assert.equal(clicks,1);assert.equal(p.w.document.querySelector('input').value,'TEXT=article');
   }finally{p.w.close();}
 });
+test('selected-text search uses TEXT directly rather than an article-title query',async()=>{
+  const record={id:'selection',type:'SearchMenu',search_terms:'Selected words'};
+  const p=page('<form><input id="Keywords"></form>','https://nouveau.europresse.com/Search/Reading',msg=>msg.action==='peek'?record:true);
+  try{
+    let query;
+    p.w.HTMLFormElement.prototype.submit=function(){query=this.querySelector('input').value;};
+    p.load('content_scripts/europresse_search.js');await flush();
+    assert.equal(query,'TEXT=Selected words');
+  }finally{p.w.close();}
+});
 test('BnF public adapters create handoffs for all four special services',async()=>{
   const cases=[['mediapart','www.mediapart.fr','<div class="paywall-message">Réservé</div>','MEDIAPART'],['arret-sur-images','www.arretsurimages.net','<div class="article"><span>réservé aux abonné.e.s</span></div>','ARRETSURIMAGES'],['alternatives-economiques','www.alternatives-economiques.fr','<iframe id="p3-paywall"></iframe><div class="article-header__rubriques"></div>','ALTERNATIVESECONOMIQUES'],['pressreader','www.pressreader.com','<h1>Magazine</h1>','PRESSREADER']];
   for(const [script,host,html,site] of cases){
@@ -81,4 +91,24 @@ test('mirror destination only consumes when Mediapart login is confirmed',async(
   try{p.load('content_scripts/config.js');p.load('content_scripts/bnf-common.js');p.load('content_scripts/mediapart.js');await flush();assert(!p.messages.some(m=>m.action==='consume'));
     p.w.document.querySelector('span').textContent='Mon compte';await new Promise(r=>setTimeout(r,550));assert.equal(p.messages.filter(m=>m.action==='consume').length,1);
   }finally{p.w.close();}
+});
+test('iPhone popup distinguishes selected text from title search and reports navigation failure',async()=>{
+  const html=fs.readFileSync('build/extension-ios/popup/popup.html','utf8');
+  const dom=new JSDOM(html,{url:'https://extension.test/popup/popup.html',runScripts:'outside-only'});
+  const w=dom.window,messages=[];
+  w.chrome={runtime:{async sendMessage(msg){messages.push(msg);return msg.action==='popup-context'?{value:{tabId:12,url:'https://www.lemonde.fr/article',title:'Article title',selection:'Selected words',publishedTime:'2026-09-16'}}:{error:'La page a changé.'};},async openOptionsPage(){}}};
+  try{
+    w.eval(fs.readFileSync('build/extension-ios/popup/popup.js','utf8'));await flush();
+    const query=w.document.getElementById('query'),form=w.document.querySelector('form');
+    assert.equal(query.value,'Selected words');
+    form.dispatchEvent(new w.Event('submit',{cancelable:true}));await flush();
+    assert.equal(messages.at(-1).type,'SearchMenu');assert.equal(messages.at(-1).sourceTabId,12);
+    assert.equal(w.document.getElementById('status').textContent,'La page a changé.');
+    w.document.getElementById('use-title').click();
+    form.dispatchEvent(new w.Event('submit',{cancelable:true}));await flush();
+    assert.equal(messages.at(-1).type,'read');assert.equal(messages.at(-1).published_time,'2026-09-16');
+    query.value='Edited search';query.dispatchEvent(new w.Event('input'));
+    form.dispatchEvent(new w.Event('submit',{cancelable:true}));await flush();
+    assert.equal(messages.at(-1).type,'SearchMenu');assert.equal(messages.at(-1).published_time,undefined);
+  }finally{w.close();}
 });

@@ -58,3 +58,15 @@ test('built manifest preserves catalog, resolves all resources, and has valid cl
   assert.equal(ctx.OPHIROFOX_PARTNERS.length,partners.length);
   for(const p of ctx.OPHIROFOX_PARTNERS){assert(p.name);assert(['http:','https:'].includes(new URL(p.AUTH_URL).protocol));assert(ctx.OPHIROFOX_ORIGINS[p.name].length);}
 });
+test('iOS manifest shares publisher coverage, provides a popup, and omits desktop menus',()=>{
+  const manifest=require('../build/extension-ios/manifest.json');
+  const desktop=require('../build/extension/manifest.json');
+  assert.deepEqual(manifest.content_scripts,desktop.content_scripts);
+  assert(!manifest.permissions.includes('contextMenus'));
+  assert(manifest.permissions.includes('activeTab'));
+  assert.equal(manifest.background.service_worker,'background.js');
+  assert.equal(manifest.action.default_popup,'popup/popup.html');
+  for(const file of ['popup/popup.html','popup/popup.js','popup/popup.css','settings/safari.css'])assert(fs.existsSync('build/extension-ios/'+file));
+  assert(!desktop.action.default_popup);
+  assert(fs.readFileSync('build/extension-ios/settings/options_ui.html','utf8').includes('width=device-width'));
+});

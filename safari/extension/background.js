@@ -1,7 +1,21 @@
 importScripts('partners.js', 'core.js');
 const C = OphirofoxCore;
+const hasContextMenus = chrome.runtime.getManifest().permissions.includes('contextMenus') && !!chrome.contextMenus;
 const pendingKey = id => `safari.request.${id}`;
 const TTL = 30 * 60 * 1000;
+let sessionPromise;
+function sessionId() {
+  // Tab IDs may be reused after a full browser restart. Keep worker restarts safe,
+  // but never attach an earlier browser session's article to an unrelated tab.
+  return sessionPromise ||= (async () => {
+    const key = 'ophirofox.browserSession';
+    const saved = (await chrome.storage.session.get(key))[key];
+    if (saved) return saved;
+    const id = crypto.randomUUID();
+    await chrome.storage.session.set({[key]:id});
+    return id;
+  })();
+}
 let queue = Promise.resolve();
 const serial = fn => { const work = queue.then(fn); queue = work.catch(console.error); return work; };
 async function settings() {
@@ -28,8 +42,10 @@ async function reconcile() {
   }
   const old = await chrome.declarativeNetRequest.getDynamicRules();
   if (JSON.stringify(old) !== JSON.stringify(grantedRules)) await chrome.declarativeNetRequest.updateDynamicRules({removeRuleIds:old.map(r=>r.id),addRules:grantedRules});
-  await chrome.contextMenus.removeAll();
-  if (s.add_search_menu) chrome.contextMenus.create({id:'EuropresseSearchMenu',title:'Rechercher : %s',contexts:['selection']});
+  if (hasContextMenus) {
+    await chrome.contextMenus.removeAll();
+    if (s.add_search_menu) chrome.contextMenus.create({id:'EuropresseSearchMenu',title:'Rechercher : %s',contexts:['selection']});
+  }
 }
 function validSender(sender) {
   return Number.isInteger(sender.tab?.id) && (sender.frameId || 0) === 0;
@@ -42,7 +58,7 @@ async function getRequest(sender) {
   const key = pendingKey(sender.tab.id);
   const record = (await chrome.storage.local.get(key))[key];
   if (!record) return null;
-  if (Date.now() - record.createdAt > TTL) { await chrome.storage.local.remove(key); return null; }
+  if (Date.now() - record.createdAt > TTL || record.session !== await sessionId()) { await chrome.storage.local.remove(key); return null; }
   if (!record.origins.some(p => C.matches(p,sender.url))) return null;
   return record;
 }
@@ -50,7 +66,7 @@ async function navigate(request, tabId, newTab, url) {
   let destination = tabId;
   if (newTab) destination = (await chrome.tabs.create({url:'about:blank'})).id;
   const key = pendingKey(destination);
-  await chrome.storage.local.set({[key]:{...request,id:crypto.randomUUID(),createdAt:Date.now(),loginAttempts:0}});
+  await chrome.storage.local.set({[key]:{...request,id:crypto.randomUUID(),session:await sessionId(),createdAt:Date.now(),loginAttempts:0}});
   try { await chrome.tabs.update(destination,{url}); }
   catch (error) { await chrome.storage.local.remove(key); throw error; }
 }
@@ -88,6 +104,28 @@ async function start(message, sender, fromMenu = false) {
   return true;
 }
 async function messageHandler(message,sender) {
+  if (message.action === 'popup-context' || message.action === 'popup-search') {
+    if (sender.tab || sender.id !== chrome.runtime.id || sender.url !== chrome.runtime.getURL('popup/popup.html')) throw new Error('Requête non autorisée.');
+    const [tab] = await chrome.tabs.query({active:true,currentWindow:true});
+    const pageSender = {tab,url:tab?.url,frameId:0};
+    if (!publisherSender(pageSender)) throw new Error('Ouvrez un article sur un journal pris en charge et autorisez Ophirofox dans le menu Safari.');
+    if (message.action === 'popup-search' && (message.sourceTabId !== tab.id || message.sourceURL !== tab.url)) throw new Error('La page a changé. Rouvrez Ophirofox depuis l’article.');
+    // Execution verifies page access, including the temporary activeTab grant.
+    let results;
+    try {
+      results = await chrome.scripting.executeScript({target:{tabId:tab.id},func:() => ({
+        url:location.href,
+        selection:String(window.getSelection() || '').trim().slice(0,2000),
+        title:(document.querySelector('h1')?.textContent || '').trim().slice(0,2000),
+        publishedTime:document.querySelector('meta[property="article:published_time"],meta[property="og:article:published_time"]')?.content || ''
+      })});
+    } catch { throw new Error('Autorisez Ophirofox sur ce journal dans le menu Safari, puis réessayez.'); }
+    const page = results?.[0]?.result;
+    if (!page || page.url !== tab.url) throw new Error('La page a changé. Rouvrez Ophirofox depuis l’article.');
+    if (message.action === 'popup-context') return {tabId:tab.id,...page};
+    if (!['read','SearchMenu'].includes(message.type)) throw new Error('Recherche invalide.');
+    return start({type:message.type,search_terms:message.search_terms,published_time:message.published_time},pageSender);
+  }
   if (message.action === 'start') return start(message,sender);
   if (message.action === 'peek') return getRequest(sender);
   if (message.action === 'consume') {
@@ -108,7 +146,7 @@ chrome.runtime.onMessage.addListener((message,sender,reply) => {
   return true;
 });
 chrome.action.onClicked.addListener(()=>chrome.runtime.openOptionsPage());
-chrome.contextMenus.onClicked.addListener((info,tab)=>{
+if (hasContextMenus) chrome.contextMenus.onClicked.addListener((info,tab)=>{
   if(info.menuItemId === 'EuropresseSearchMenu') serial(()=>start({type:'SearchMenu',search_terms:info.selectionText},{tab,url:tab.url},true)).catch(()=>chrome.runtime.openOptionsPage());
 });
 chrome.tabs.onRemoved.addListener(id=>serial(()=>chrome.storage.local.remove(pendingKey(id))));
@@ -121,7 +159,8 @@ serial(async()=>{
   // Prune closed tabs and expired requests; never store library credentials.
   const tabs = new Set((await chrome.tabs.query({})).map(t=>t.id));
   const data = await chrome.storage.local.get(null);
-  const stale = Object.keys(data).filter(k=>k.startsWith('safari.request.') && (!tabs.has(Number(k.split('.').at(-1))) || Date.now()-data[k].createdAt>TTL));
+  const session = await sessionId();
+  const stale = Object.keys(data).filter(k=>k.startsWith('safari.request.') && (!tabs.has(Number(k.split('.').at(-1))) || Date.now()-data[k].createdAt>TTL || data[k].session !== session));
   if(stale.length) await chrome.storage.local.remove(stale);
   await reconcile();
 });

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ophirofox</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Ophirofox</h1>
+  <p>Recherchez un texte sélectionné ou le titre d’un article dans Europresse.</p>
+  <form id="search-form">
+    <label for="query">Votre recherche</label>
+    <textarea id="query" rows="3" maxlength="2000" required placeholder="Sélectionnez du texte sur le journal, ou collez-le ici."></textarea>
+    <button id="use-title" type="button" disabled>Utiliser le titre de l’article</button>
+    <button id="search" type="submit" disabled>Rechercher sur Europresse</button>
+  </form>
+  <p id="status" role="status" aria-live="polite"></p>
+  <button id="settings" type="button">Bibliothèque et autorisations</button>
+  <script src="popup.js"></script>
+</body>
+</html>

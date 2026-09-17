@@ -1,0 +1,7 @@
+* { box-sizing: border-box; }
+body { max-width: 760px; margin: 0 auto; padding-bottom: env(safe-area-inset-bottom); }
+input[type="search"], button { min-height: 44px; font: inherit; font-size: 16px; }
+label { min-height: 44px; overflow-wrap: anywhere; }
+input[type="checkbox"], input[type="radio"] { width: 20px; height: 20px; vertical-align: middle; margin: 0 8px 0 0; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid #1674bd; outline-offset: 2px; }
+#safari-status { overflow-wrap: anywhere; }

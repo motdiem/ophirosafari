@@ -21,7 +21,7 @@ getSettings().then(async value=>{
     const input=document.getElementById(key);input.checked=settings[key];
     input.onchange=()=>{settings[key]=input.checked;setSettings(settings).catch(error);};
   }
-  document.getElementById('add_search_label').hidden=false;
+  document.getElementById('add_search_label').hidden=!chrome.runtime.getManifest().permissions.includes('contextMenus') || !chrome.contextMenus;
   await refresh();
 }).catch(error);
 missing.onclick=async()=>{try{await ophirofoxAskPermissions(settings.partner_name);await refresh();}catch(e){error(e);}};
