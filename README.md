@@ -262,6 +262,10 @@ Normal repeat builds reuse the cached provisioning profiles. Development certifi
 
 The detailed [Mac guide](safari/README.md), [iPhone guide](safari/IOS.md), and [validation record](safari/VALIDATION.md) describe implementation details and remaining limitations. Authentication always happens on the library's website in Safari.
 
+## Architecture and porting decisions
+
+See [architecture.md](architecture.md) for the build pipeline, runtime components, request lifecycle, storage and permission boundaries, platform differences, and the reasons features were retained, replaced, or deferred during the port.
+
 ## Source and attribution
 
 `ophirofox/` preserves upstream MV3 source at commit `364cedd74f916a116645f14ed2f1104de8381940`. Safari adaptations live in `safari/extension/`; `scripts/build-safari.mjs` generates the platform resources. The native wrappers are in `safari/Ophirofox Safari/` and `safari/Ophirofox iOS/`, with a shared workspace at `safari/Ophirofox.xcworkspace`.
