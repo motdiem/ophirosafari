@@ -55,7 +55,7 @@ See `VALIDATION.md` for actual results and the remaining manual acceptance check
 ## Limitations
 
 - This is a local development-signed Mac application, not a notarized public distribution or App Store release.
-- Mobile Safari and cross-device settings sync are outside this version.
+- iPhone support is documented in [IOS.md](IOS.md). Cross-device settings sync remains outside this version.
 - The per-tab handoff follows redirects within the destination tab. If a library portal opens a separate tab itself, relaunch the reading link after authentication; that portal-created tab does not inherit the pending request.
 - Use a normal click, keyboard activation, middle click, or Command-click for handoffs. Safari's native “Open Link in New Tab” context-menu command bypasses the click handler and cannot preserve the article request.
 - Authentication and selectors must be verified against live services; a successful build does not guarantee subscription access.

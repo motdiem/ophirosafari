@@ -7,6 +7,8 @@ A macOS Safari Web Extension port of [Ophirofox](https://github.com/lovasoa/ophi
 - Per-tab article handoffs, PDF links, selected-text search, and French settings.
 - Local developer signing; no App Store distribution or bundled credentials.
 
+The `codex/ios-safari` branch also provides an iPhone app and Safari extension for iOS 27, installed directly from Xcode. See [iPhone build and installation](safari/IOS.md).
+
 ## Build and install
 
 Requires Node 22.13+ and Xcode 26. Signed installation also requires your own Apple Development certificate.

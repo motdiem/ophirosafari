@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; font: 16px -apple-system, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { width: 340px; max-width: 100%; margin: 0; padding: 16px; }
+h1 { font-size: 22px; margin: 0; }
+p { line-height: 1.45; }
+label { display: block; margin-bottom: 8px; }
+textarea, button { display: block; width: 100%; font: inherit; min-height: 44px; border-radius: 8px; margin-bottom: 10px; padding: 10px; }
+textarea { resize: vertical; }
+button { cursor: pointer; }
+#search { background: #ffcc33; color: #111; border: 1px solid #c5960c; font-weight: 600; }
+button:disabled { opacity: .5; cursor: default; }
+#status { overflow-wrap: anywhere; }
+:focus-visible { outline: 3px solid #1674bd; outline-offset: 2px; }

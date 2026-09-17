@@ -1,0 +1,12 @@
+:root { color-scheme: light dark; font: -apple-system-body; }
+* { box-sizing: border-box; }
+body { margin: 0; background: Canvas; color: CanvasText; }
+main { max-width: 640px; margin: 0 auto; padding: max(24px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom)); }
+h1 { font: -apple-system-title1; font-weight: 700; }
+p, li { line-height: 1.55; }
+ol { padding-left: 24px; }
+li { padding-left: 4px; margin-bottom: 20px; }
+a { color: #1674bd; text-underline-offset: 3px; }
+footer { border-top: 1px solid #8886; padding-top: 18px; line-height: 2; }
+.note { padding: 16px; border-radius: 12px; background: #8881; }
+@media (prefers-color-scheme: dark) { a { color: #84c4ff; } }

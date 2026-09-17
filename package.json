@@ -5,9 +5,13 @@
   "scripts": {
     "build": "node scripts/build-safari.mjs",
     "test": "node --test tests/*.test.cjs",
-    "check": "npm run build && npm test",
+    "check": "npm run build && npm run build:ios && npm test",
     "xcode:build": "bash scripts/build-macos.sh",
-    "xcode:unsigned": "bash scripts/build-macos.sh unsigned"
+    "xcode:unsigned": "bash scripts/build-macos.sh unsigned",
+    "build:ios": "node scripts/build-safari.mjs ios",
+    "ios:simulator": "bash scripts/build-ios.sh simulator",
+    "ios:build": "bash scripts/build-ios.sh device",
+    "ios:install": "bash scripts/install-ios.sh"
   },
   "devDependencies": {
     "jsdom": "^29.1.1"

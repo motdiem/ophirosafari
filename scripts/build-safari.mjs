@@ -4,7 +4,9 @@ import {createRequire} from 'node:module';
 const require = createRequire(import.meta.url);
 const core = require('../safari/extension/core.js');
 const root = path.resolve(import.meta.dirname, '..');
-const out = path.join(root, 'build/extension');
+const platform = process.argv[2] || 'macos';
+if (!['macos', 'ios'].includes(platform)) throw new Error('Usage: build-safari.mjs [macos|ios]');
+const out = path.join(root, platform === 'ios' ? 'build/extension-ios' : 'build/extension');
 const manifest = JSON.parse(await fs.readFile(path.join(root, 'ophirofox/manifest.json')));
 const partners = manifest.browser_specific_settings.ophirofox_metadata.partners;
 const upstream = JSON.parse(await fs.readFile(path.join(root, 'safari/upstream.json')));
@@ -22,6 +24,11 @@ manifest.version = '1.0.0';
 manifest.background = {service_worker:'background.js'};
 manifest.permissions = ['contextMenus','storage','scripting','declarativeNetRequestWithHostAccess'];
 manifest.action = {default_title:'Ophirofox — Réglages et accès aux sites',default_icon:manifest.icons};
+if (platform === 'ios') {
+  manifest.permissions = manifest.permissions.filter(p => p !== 'contextMenus');
+  manifest.permissions.push('activeTab');
+  manifest.action.default_popup = 'popup/popup.html';
+}
 manifest.optional_host_permissions = [...new Set([...originalOptional, ...Object.values(originMap).flat()])].filter(p => !manifest.host_permissions.includes(p)).sort();
 for (const entry of manifest.content_scripts) {
   if (entry.js.some(f => /\/(mediapart|arret-sur-images|alternatives-economiques|pressreader)\.js$/.test(f))) {
@@ -38,7 +45,9 @@ for (const entry of manifest.content_scripts) {
 }
 await fs.writeFile(path.join(out,'manifest.json'), JSON.stringify(manifest,null,2)+'\n');
 let html = await fs.readFile(path.join(out,'settings/options_ui.html'),'utf8');
+html = html.replace('<meta charset="utf-8" />', '<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="safari.css" />');
 html = html.replace('<script src="../content_scripts/config.js">', '<script src="../partners.js"></script>\n<script src="../core.js"></script>\n<script src="../content_scripts/config.js">');
 html = html.replace('<form id="configuration">', '<section style="padding:16px"><h1>Ophirofox pour Safari</h1><p>Choisissez votre bibliothèque, puis autorisez ses sites. Dans Safari → Réglages → Extensions → Ophirofox, autorisez aussi les journaux que vous lisez et les sites mandataires BnF.</p><p>Si le bouton manque, vérifiez l’accès au site depuis la barre d’outils Safari, puis rechargez la page.</p><p id="safari-status" role="status" aria-live="polite"></p><p><small>Adaptation indépendante de <a href="https://github.com/lovasoa/ophirofox">Ophirofox</a> · MPL-2.0 · Authentification sur le site de votre bibliothèque.</small></p></section><form id="configuration">');
+if (platform === 'ios') html = html.replace('Dans Safari → Réglages → Extensions → Ophirofox', 'Sur iPhone, dans Réglages → Apps → Safari → Extensions → Ophirofox').replace('depuis la barre d’outils Safari', 'depuis le menu de page de Safari');
 await fs.writeFile(path.join(out,'settings/options_ui.html'),html);
-console.log(`Safari build: ${partners.length} partners, ${manifest.content_scripts.length} content-script groups; upstream ${upstream.commit}`);
+console.log(`Safari ${platform} build: ${partners.length} partners, ${manifest.content_scripts.length} content-script groups; upstream ${upstream.commit}`);

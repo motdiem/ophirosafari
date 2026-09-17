@@ -12,6 +12,7 @@ node_modules/
 
 # Local signing configuration, credentials, and generated applications
 .ophirofox.local.xcconfig
+.ophirofox.ios.local.xcconfig
 .env
 .env.*
 !.env.example
